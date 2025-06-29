@@ -79,4 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Roadmap Rendering Logic ---
+    const roadmapContainer = document.getElementById('roadmap-container');
+    if (roadmapContainer) {
+        // Use the marked library to parse markdown
+        const renderer = new marked.Renderer();
+        // Make sure links open in a new tab
+        renderer.link = function(href, title, text) {
+            return `<a target="_blank" href="${href}" title="${title}">${text}</a>`;
+        };
+
+        marked.setOptions({
+            renderer: renderer,
+            gfm: true, // Enable GitHub Flavored Markdown
+            breaks: true // Add <br> on single line breaks
+        });
+
+        fetch('roadmap.md')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                // The first line is a custom intro, let's remove it for the display
+                const contentToRender = markdown.substring(markdown.indexOf("---"));
+                roadmapContainer.innerHTML = marked.parse(contentToRender);
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing roadmap:', error);
+                roadmapContainer.innerHTML = `<p style="color: var(--secondary-neon);">Error loading roadmap. The loop may be unstable.</p>`;
+            });
+    }
 });

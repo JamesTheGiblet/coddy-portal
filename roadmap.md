@@ -43,7 +43,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Visually render your existing `roadmap.md` with glow-highlighted progress.
 
-- [ ] Parse GitHub-hosted `roadmap.md` using JavaScript or GitHub API  
+- [x] Parse GitHub-hosted `roadmap.md` using JavaScript or GitHub API
 - [ ] Build vertical timeline view with collapsible phases  
 - [ ] Animate completed tasks with flicker-pulse checkmarks  
 - [ ] Add Coddy commentary per phase (e.g. “currently looping...”)  

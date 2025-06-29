@@ -316,3 +316,54 @@ body.weird-mode-active #weird-mode-toggle:hover {
 body.weird-mode-active #quote-whisper-box.visible {
     animation: flicker 1.5s infinite alternate;
 }
+
+/* --- Roadmap Styles --- */
+#roadmap-container {
+    text-align: left;
+    width: 100%;
+    border: 1px solid var(--secondary-neon);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    background-color: rgba(10, 10, 10, 0.5);
+}
+
+#roadmap-container h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--primary-neon);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+#roadmap-container strong {
+    color: var(--text-color);
+}
+
+#roadmap-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#roadmap-container li {
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    list-style-type: none; /* Remove default bullets */
+}
+
+#roadmap-container li input[type="checkbox"] {
+    margin-right: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 1.15em;
+    height: 1.15em;
+    border: 1px solid var(--primary-neon);
+    transform: translateY(0.15em);
+    cursor: default;
+    position: relative;
+}
+
+#roadmap-container li input[type="checkbox"]:checked {
+    background-color: var(--primary-neon);
+    box-shadow: 0 0 10px var(--glow-color);
+    border-color: var(--primary-neon);
+}
