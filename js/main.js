@@ -83,30 +83,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Roadmap Rendering Logic ---
     const roadmapContainer = document.getElementById('roadmap-container');
     if (roadmapContainer) {
-        // Use the marked library to parse markdown
-        const renderer = new marked.Renderer();
-        // Make sure links open in a new tab
-        renderer.link = function(href, title, text) {
-            return `<a target="_blank" href="${href}" title="${title}">${text}</a>`;
-        };
-
-        marked.setOptions({
-            renderer: renderer,
-            gfm: true, // Enable GitHub Flavored Markdown
-            breaks: true // Add <br> on single line breaks
-        });
-
         fetch('roadmap.md')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.statusText}`);
-                }
-                return response.text();
-            })
+            .then(response => response.ok ? response.text() : Promise.reject(response.statusText))
             .then(markdown => {
-                // The first line is a custom intro, let's remove it for the display
                 const contentToRender = markdown.substring(markdown.indexOf("---"));
-                roadmapContainer.innerHTML = marked.parse(contentToRender);
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = marked.parse(contentToRender);
+
+                const phases = [];
+                let currentPhaseElements = [];
+
+                // Group elements between <hr> tags which represent phases
+                Array.from(tempDiv.children).forEach(el => {
+                    if (el.tagName === 'HR' && currentPhaseElements.length > 0) {
+                        const h2 = currentPhaseElements.find(e => e.tagName === 'H2');
+                        if (h2) {
+                            phases.push({
+                                title: h2.innerHTML,
+                                contentElements: currentPhaseElements.filter(e => e !== h2)
+                            });
+                        }
+                        currentPhaseElements = [];
+                    } else if (el.tagName !== 'HR') {
+                        currentPhaseElements.push(el);
+                    }
+                });
+                // Add the last phase
+                if (currentPhaseElements.length > 0) {
+                    const h2 = currentPhaseElements.find(e => e.tagName === 'H2');
+                    if (h2) {
+                        phases.push({
+                            title: h2.innerHTML,
+                            contentElements: currentPhaseElements.filter(e => e !== h2)
+                        });
+                    }
+                }
+
+                roadmapContainer.innerHTML = ''; // Clear for new structure
+
+                phases.forEach(phase => {
+                    const phaseElement = document.createElement('div');
+                    phaseElement.className = 'phase';
+
+                    const headerButton = document.createElement('button');
+                    headerButton.className = 'phase-header';
+                    headerButton.innerHTML = phase.title;
+
+                    const contentPanel = document.createElement('div');
+                    contentPanel.className = 'phase-content';
+                    phase.contentElements.forEach(contentEl => contentPanel.appendChild(contentEl));
+
+                    phaseElement.append(headerButton, contentPanel);
+                    roadmapContainer.appendChild(phaseElement);
+
+                    headerButton.addEventListener('click', () => {
+                        headerButton.classList.toggle('active');
+                        const panel = headerButton.nextElementSibling;
+                        panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + "px";
+                    });
+                });
             })
             .catch(error => {
                 console.error('Error fetching or parsing roadmap:', error);
