@@ -19,6 +19,17 @@
     </header>
 
     <main>
+        <div id="boot-loop-glyph-container">
+            <svg id="boot-loop-glyph" width="150" height="150" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <style>
+                    #boot-loop-glyph .stroke { stroke: var(--primary-neon); stroke-width: 5; stroke-linecap: round; fill: none; filter: drop-shadow(0 0 4px var(--glow-color)); }
+                </style>
+                <path class="stroke" d="M 50,10 A 40,40 0 1 1 25,18" />
+                <path class="stroke" d="M 15,25 L 25,18 L 35,25" />
+                <path class="stroke" d="M 50,90 A 40,40 0 1 1 75,82" />
+                <path class="stroke" d="M 85,75 L 75,82 L 65,75" />
+            </svg>
+        </div>
         <h2>Initializing...</h2>
         <p>Welcome to the development loop for the Coddy Web Portal. Stand by for weird mode.</p>
     </main>

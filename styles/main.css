@@ -53,3 +53,18 @@ main {
     margin-top: 2rem;
     max-width: 800px;
 }
+
+/* --- Animations --- */
+#boot-loop-glyph-container {
+    margin-bottom: 1rem;
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

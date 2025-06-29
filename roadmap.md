@@ -13,7 +13,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 - [x] Add basic file structure: `styles/`, `js/` (planned)
 - [x] Configure routing for: Home, Roadmap, Genesis Demo, Portal (About)
 - [x] Define global styles: base fonts, neon palette
-- [ ] Set up deployment pipeline with GitHub Actions for automatic `gh-pages` deployment
+- [x] Set up deployment pipeline with GitHub Actions for automatic `gh-pages` deployment
 
 ---
 
@@ -21,7 +21,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Introduce Coddy’s identity with visual language drawn from your posters.
 
-- [ ] Design looping **Boot the Loop** animation or glyph (SVG or canvas)  
+- [x] Design looping **Boot the Loop** animation or glyph (SVG or canvas)
 - [ ] Build Hero section with tagline, portal button, glowing background  
 - [ ] Add subtle particle FX / scanlines / glitch-bloom overlay  
 - [ ] Toggle: Enter Weird Mode (glitch sounds, inverted palette, Coddy whispers)  
