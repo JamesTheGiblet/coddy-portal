@@ -221,3 +221,44 @@ body.weird-mode-active #weird-mode-toggle:hover {
         font-size: 1rem;
     }
 }
+
+/* --- Accordion --- */
+.accordion {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.accordion-button {
+    background-color: transparent;
+    color: var(--secondary-neon);
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid var(--secondary-neon);
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    font-family: var(--font-main);
+    transition: 0.4s;
+    margin-top: 0.5rem;
+}
+
+.accordion-button:hover, .accordion-button.active {
+    background-color: var(--secondary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+.accordion-panel {
+    padding: 0 18px;
+    background-color: #111;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: 1px solid var(--secondary-neon);
+    border-right: 1px solid var(--secondary-neon);
+    border-bottom: 1px solid var(--secondary-neon);
+}
+.accordion-panel p {
+    color: var(--text-color);
+}

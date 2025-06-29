@@ -33,13 +33,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Clearly communicate Coddy’s identity and features through interactive UI.
 
-- [ ] Create accordion or hover-drop panel for:
-  - “Memory-Rich”  
-  - “Roadmap Fluent”  
-  - “Pattern Oracle”  
-  - “Clones on Call”  
-  - “Lab Mode”  
-  - “Genesis Ritual”  
+- [x] Create accordion for core features
 - [ ] Add tagline loops: _“We don’t code. We loop.”_, _“Async to the Bone”_, etc.  
 - [ ] Integrate Coddy quotes (from posters or you): whisper on hover, animate in weird mode
 
