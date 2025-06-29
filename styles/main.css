@@ -423,3 +423,19 @@ body.weird-mode-active #quote-whisper-box.visible {
         box-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--primary-neon);
     }
 }
+
+.coddy-commentary {
+    padding: 1rem;
+    margin: 1rem;
+    border-left: 3px solid var(--secondary-neon);
+    background-color: rgba(255, 0, 255, 0.05);
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.coddy-commentary em {
+    color: var(--secondary-neon);
+    font-style: normal;
+    font-weight: bold;
+}

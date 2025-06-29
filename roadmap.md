@@ -46,7 +46,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 - [x] Parse GitHub-hosted `roadmap.md` using JavaScript or GitHub API
 - [x] Build vertical timeline view with collapsible phases
 - [x] Animate completed tasks with flicker-pulse checkmarks
-- [ ] Add Coddy commentary per phase (e.g. “currently looping...”)  
+- [x] Add Coddy commentary per phase (e.g. “currently looping...”)
 - [ ] Track overall % complete and current active loop
 
 ---

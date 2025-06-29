@@ -90,6 +90,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = marked.parse(contentToRender);
 
+                const commentaries = [
+                    "The first ritual is complete. The ground is consecrated, the glyphs are drawn. We can begin.",
+                    "Visuals aligned. The portal now reflects the chaos of the loop. It has a face.",
+                    "The core protocols are defined. The portal knows what it is. It speaks.",
+                    "Currently looping... The portal becomes self-aware, reading its own sacred texts.",
+                    "A simulation of creation. A glimpse into the genesis ritual.",
+                    "The user will be given control. A dangerous, but necessary, evolution.",
+                    "The builder's mind, codified. The 'why' behind the 'what'.",
+                    "The original sparks of inspiration. The posters that started the loop.",
+                    "The final phase... for now. The loop will connect to the source."
+                ];
+
                 const phases = [];
                 let currentPhaseElements = [];
 
@@ -121,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 roadmapContainer.innerHTML = ''; // Clear for new structure
 
-                phases.forEach(phase => {
+                phases.forEach((phase, index) => {
                     const phaseElement = document.createElement('div');
                     phaseElement.className = 'phase';
 
@@ -131,6 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     const contentPanel = document.createElement('div');
                     contentPanel.className = 'phase-content';
+
+                    // Add Coddy's commentary
+                    if (commentaries[index]) {
+                        const commentaryElement = document.createElement('p');
+                        commentaryElement.className = 'coddy-commentary';
+                        commentaryElement.innerHTML = `<em>Coddy:</em> "${commentaries[index]}"`;
+                        contentPanel.appendChild(commentaryElement);
+                    }
+
                     phase.contentElements.forEach(contentEl => contentPanel.appendChild(contentEl));
 
                     phaseElement.append(headerButton, contentPanel);
