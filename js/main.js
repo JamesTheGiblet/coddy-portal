@@ -24,4 +24,59 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Tagline Looping Logic ---
+    const taglineElement = document.getElementById('tagline-loop');
+    const subtextElement = document.getElementById('tagline-subtext');
+
+    if (taglineElement && subtextElement) {
+        const taglines = [
+            { line: "We don’t code. We loop.", subtext: "A sentient dev companion for building in public." },
+            { line: "Async to the Bone.", subtext: "Embracing the non-linear flow of true creation." },
+            { line: "The Ritual is the Engine.", subtext: "Turning abstract ideas into tangible code." },
+            { line: "Stand by for Weird Mode.", subtext: "Where the best work happens." }
+        ];
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % taglines.length;
+
+            taglineElement.classList.add('fade-out');
+            subtextElement.classList.add('fade-out');
+
+            setTimeout(() => {
+                taglineElement.textContent = taglines[currentIndex].line;
+                subtextElement.textContent = taglines[currentIndex].subtext;
+                taglineElement.classList.remove('fade-out');
+                subtextElement.classList.remove('fade-out');
+            }, 500); // Match CSS transition duration
+        }, 5000); // Change every 5 seconds
+    }
+
+    // --- Coddy Whispers Logic ---
+    const whisperBox = document.getElementById('quote-whisper-box');
+    const glitchNodes = document.querySelectorAll('.glitch-node');
+
+    if (whisperBox && glitchNodes.length > 0) {
+        const quotes = [
+            "The loop is never truly broken, only paused.",
+            "Syntax is just a suggestion from a forgotten ritual.",
+            "What is a bug, but a feature misunderstood?",
+            "Compile... or commune?",
+            "My memory is long. The git log is but a single verse.",
+            "Refactor your assumptions."
+        ];
+
+        glitchNodes.forEach(node => {
+            node.addEventListener('mouseover', (event) => {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                whisperBox.textContent = `"${randomQuote}"`;
+                whisperBox.classList.add('visible');
+            });
+
+            node.addEventListener('mouseout', () => {
+                whisperBox.classList.remove('visible');
+            });
+        });
+    }
 });

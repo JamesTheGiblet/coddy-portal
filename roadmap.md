@@ -34,8 +34,8 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 **Goal:** Clearly communicate Coddy’s identity and features through interactive UI.
 
 - [x] Create accordion for core features
-- [ ] Add tagline loops: _“We don’t code. We loop.”_, _“Async to the Bone”_, etc.  
-- [ ] Integrate Coddy quotes (from posters or you): whisper on hover, animate in weird mode
+- [x] Add tagline loops: _“We don’t code. We loop.”_, _“Async to the Bone”_, etc.
+- [x] Integrate Coddy quotes (from posters or you): whisper on hover, animate in weird mode
 
 ---
 

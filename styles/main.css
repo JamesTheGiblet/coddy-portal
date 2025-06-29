@@ -93,8 +93,13 @@ main {
     padding: 2rem;
     border-radius: 10px;
 }
-
-.tagline {
+.tagline, #tagline-subtext {
+    transition: opacity 0.5s ease-in-out;
+}
+.tagline.fade-out, #tagline-subtext.fade-out {
+    opacity: 0;
+}
+.tagline {    
     font-size: 2rem;
     margin: 1rem 0;
     color: var(--primary-neon);
@@ -261,4 +266,53 @@ body.weird-mode-active #weird-mode-toggle:hover {
 }
 .accordion-panel p {
     color: var(--text-color);
+}
+
+/* --- Coddy Whispers --- */
+.glitch-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.glitch-node {
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-neon);
+    cursor: pointer;
+    animation: pulse 2s infinite alternate;
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+@keyframes pulse {
+    from { opacity: 0.5; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.2); }
+}
+
+#quote-whisper-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(10, 10, 10, 0.9);
+    border: 1px solid var(--primary-neon);
+    color: var(--primary-neon);
+    padding: 1rem;
+    border-radius: 5px;
+    max-width: 300px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    font-style: italic;
+}
+
+#quote-whisper-box.visible {
+    opacity: 1;
+}
+
+body.weird-mode-active #quote-whisper-box.visible {
+    animation: flicker 1.5s infinite alternate;
 }
