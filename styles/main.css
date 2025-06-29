@@ -51,6 +51,32 @@ header nav {
     gap: 1rem;
 }
 
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weird-mode-toggle {
+    margin-top: 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--primary-neon);
+    color: var(--primary-neon);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-main);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#weird-mode-toggle:hover {
+    background-color: var(--primary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
 main {
     margin-top: 2rem;
     max-width: 800px;
@@ -128,4 +154,44 @@ body::before {
 @keyframes scanline {
     from { background-position: 0 0; }
     to { background-position: 0 -40px; }
+}
+
+/* --- Weird Mode --- */
+body.weird-mode-active {
+    --background-color: #e0e0e0;
+    --text-color: #0a0a0a;
+    --primary-neon: #ff00ff; /* Magenta becomes primary */
+    --secondary-neon: #00f7ff; /* Cyan becomes secondary */
+    --glow-color: rgba(255, 0, 255, 0.5);
+}
+
+body.weird-mode-active h1,
+body.weird-mode-active h2 {
+    animation: flicker 1.5s infinite alternate;
+}
+
+body.weird-mode-active #weird-mode-toggle {
+    border-color: var(--primary-neon);
+    color: var(--primary-neon);
+}
+
+body.weird-mode-active #weird-mode-toggle:hover {
+    background-color: var(--primary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 4px var(--primary-neon),
+            0 0 11px var(--primary-neon),
+            0 0 19px var(--primary-neon),
+            0 0 40px var(--glow-color),
+            0 0 80px var(--glow-color);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        color: inherit;
+    }
 }
