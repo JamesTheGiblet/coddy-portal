@@ -197,13 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
         genesisForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const idea = ideaInput.value.trim();
+            const isWeirdGenesis = document.getElementById('genesis-weird-toggle').checked;
 
             if (idea) {
                 console.log("Genesis Ritual Initiated. Idea:", idea);
                 outputArea.innerHTML = ''; // Clear previous results
 
                 // --- Generate README ---
-                const isWeirdGenesis = document.getElementById('genesis-weird-toggle').checked;
                 const projectName = idea.split(' ').slice(0, 5).join(' ').replace(/[.,]/g, '') || "New Project";
                 let readmeContent;
 
@@ -245,9 +245,71 @@ ${idea}
 
                 createParchmentFrame('README.md', marked.parse(readmeContent));
 
+                // --- Save to localStorage ---
+                const newRitual = {
+                    id: Date.now(),
+                    idea,
+                    projectName,
+                    readmeContent,
+                    isWeird: isWeirdGenesis
+                };
+                saveRitual(newRitual);
+                loadSavedRituals(); // Refresh the list
+
             } else {
                 alert("The ritual requires an idea to begin.");
             }
         });
+
+        function createParchmentFrame(title, content) {
+            const frame = document.createElement('div');
+            frame.className = 'parchment-frame';
+            const header = document.createElement('div');
+            header.className = 'parchment-header';
+            header.textContent = title;
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'parchment-content';
+            contentDiv.innerHTML = content;
+            frame.append(header, contentDiv);
+            outputArea.innerHTML = ''; // Clear before adding new frame
+            outputArea.appendChild(frame);
+        }
+
+        function getSavedRituals() {
+            return JSON.parse(localStorage.getItem('coddy-rituals')) || [];
+        }
+
+        function saveRitual(ritual) {
+            const rituals = getSavedRituals();
+            rituals.unshift(ritual); // Add to the beginning
+            localStorage.setItem('coddy-rituals', JSON.stringify(rituals.slice(0, 5))); // Keep only the last 5
+        }
+
+        function loadSavedRituals() {
+            const rituals = getSavedRituals();
+            const listElement = document.getElementById('saved-rituals-list');
+            listElement.innerHTML = '';
+            rituals.forEach(ritual => {
+                const item = document.createElement('li');
+                item.className = `saved-ritual-item ${ritual.isWeird ? 'weird' : ''}`;
+                item.innerHTML = `<span>${ritual.projectName}</span> <button class="reload-ritual-button" data-id="${ritual.id}">Reload</button>`;
+                listElement.appendChild(item);
+            });
+        }
+
+        document.getElementById('saved-rituals-list').addEventListener('click', (event) => {
+            if (event.target.classList.contains('reload-ritual-button')) {
+                const ritualId = Number(event.target.dataset.id);
+                const rituals = getSavedRituals();
+                const ritualToLoad = rituals.find(r => r.id === ritualId);
+                if (ritualToLoad) {
+                    createParchmentFrame('README.md', marked.parse(ritualToLoad.readmeContent));
+                    window.scrollTo(0, 0); // Scroll to top to see the result
+                }
+            }
+        });
+
+        // Initial load
+        loadSavedRituals();
     }
 });

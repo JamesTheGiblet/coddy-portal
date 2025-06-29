@@ -621,3 +621,40 @@ body.weird-mode-active #quote-whisper-box.visible {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- Saved Rituals Log --- */
+#saved-rituals-area {
+    width: 100%;
+    margin-top: 4rem;
+    border-top: 1px solid var(--secondary-neon);
+    padding-top: 2rem;
+}
+
+#saved-rituals-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.saved-ritual-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: rgba(10, 10, 10, 0.5);
+    border: 1px solid #333;
+    margin-bottom: 1rem;
+}
+
+.saved-ritual-item.weird {
+    border-left: 3px solid var(--secondary-neon);
+}
+
+.reload-ritual-button {
+    background: none;
+    border: 1px solid var(--primary-neon);
+    color: var(--primary-neon);
+    padding: 0.5rem;
+    cursor: pointer;
+    font-family: var(--font-main);
+}

@@ -61,7 +61,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
   - Click → see Phase 1 roadmap + placeholder code output  
 - [x] Style each output block in “ritual parchment” frame
 - [x] Add toggle: Standard vs Weird Genesis
-- [ ] Save mock projects to localStorage (optional)
+- [x] Save mock projects to localStorage (optional)
 
 ---
 
