@@ -55,8 +55,8 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Simulate Coddy’s project creation process, start to finish (mini version).
 
-- [ ] Build Genesis Tab with 3-part flow:
-  - Input project idea  
+- [x] Build Genesis Tab with 3-part flow:
+  - [x] Input project idea
   - Coddy generates sample README  
   - Click → see Phase 1 roadmap + placeholder code output  
 - [ ] Style each output block in “ritual parchment” frame  

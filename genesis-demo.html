@@ -23,8 +23,14 @@
         <h2>Genesis Mode Demo</h2>
         <p>This is a simulation of Coddy's project creation ritual. Provide an idea, and witness the genesis of a new development loop.</p>
         
-        <!-- Placeholders for the interactive demo -->
-        <div id="genesis-input-area"></div>
+        <div id="genesis-input-area">
+            <form id="genesis-form">
+                <label for="genesis-idea-input">Enter Your Project Idea:</label>
+                <textarea id="genesis-idea-input" name="idea" rows="4" placeholder="e.g., A retro-futuristic pomodoro timer for deep work sessions..."></textarea>
+                <button type="submit" id="genesis-start-button">Begin the Ritual</button>
+            </form>
+        </div>
+
         <div id="genesis-output-area"></div>
     </main>
 

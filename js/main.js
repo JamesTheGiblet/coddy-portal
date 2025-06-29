@@ -187,4 +187,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 roadmapContainer.innerHTML = `<p style="color: var(--secondary-neon);">Error loading roadmap. The loop may be unstable.</p>`;
             });
     }
+
+    // --- Genesis Demo Logic ---
+    const genesisForm = document.getElementById('genesis-form');
+    if (genesisForm) {
+        genesisForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const ideaInput = document.getElementById('genesis-idea-input');
+            const idea = ideaInput.value.trim();
+
+            if (idea) {
+                console.log("Genesis Ritual Initiated. Idea:", idea);
+                // Future steps will generate output here.
+            } else {
+                alert("The ritual requires an idea to begin.");
+            }
+        });
+    }
 });

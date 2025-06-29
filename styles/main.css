@@ -471,3 +471,58 @@ body.weird-mode-active #quote-whisper-box.visible {
     font-style: normal;
     font-weight: bold;
 }
+
+/* --- Genesis Demo --- */
+#genesis-input-area {
+    width: 100%;
+    border: 1px solid var(--secondary-neon);
+    padding: 2rem;
+    background-color: rgba(10, 10, 10, 0.5);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#genesis-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#genesis-form label {
+    text-align: left;
+    color: var(--primary-neon);
+    font-size: 1.1rem;
+}
+
+#genesis-form textarea {
+    background-color: #111;
+    border: 1px solid var(--secondary-neon);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    padding: 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 80px;
+}
+
+#genesis-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+#genesis-start-button {
+    background-color: var(--secondary-neon);
+    color: var(--background-color);
+    border: none;
+    padding: 1rem;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+#genesis-start-button:hover {
+    box-shadow: 0 0 25px var(--secondary-neon), 0 0 40px var(--secondary-neon);
+}
