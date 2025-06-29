@@ -5,6 +5,7 @@
     --primary-neon: #00f7ff; /* Neon Cyan */
     --secondary-neon: #f0f; /* Neon Magenta */
     --glow-color: rgba(0, 247, 255, 0.5);
+    --transition-speed: 0.4s; /* Default vibe speed */
     --font-main: 'Courier New', Courier, monospace;
 }
 
@@ -36,7 +37,7 @@ a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     border: 1px solid var(--secondary-neon);
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
 }
 
 a:hover {
@@ -58,15 +59,22 @@ header {
     align-items: center;
 }
 
-#weird-mode-toggle {
+#control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 1.5rem;
+}
+
+#weird-mode-toggle {
     background-color: transparent;
     border: 1px solid var(--primary-neon);
     color: var(--primary-neon);
     padding: 0.5rem 1rem;
     font-family: var(--font-main);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -74,6 +82,58 @@ header {
 #weird-mode-toggle:hover {
     background-color: var(--primary-neon);
     color: var(--background-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.vibe-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 200px;
+}
+
+.vibe-slider-container label {
+    font-size: 0.8rem;
+    color: var(--secondary-neon);
+    letter-spacing: 1px;
+}
+
+/* Custom Slider Styles */
+#vibe-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #333;
+    outline: none;
+    border: 1px solid var(--secondary-neon);
+    opacity: 0.7;
+    transition: opacity var(--transition-speed);
+}
+
+#vibe-slider:hover {
+    opacity: 1;
+}
+
+#vibe-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-neon);
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+#vibe-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-neon);
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
     box-shadow: 0 0 15px var(--glow-color);
 }
 
@@ -94,7 +154,7 @@ main {
     border-radius: 10px;
 }
 .tagline, #tagline-subtext {
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity var(--transition-speed) ease-in-out;
 }
 .tagline.fade-out, #tagline-subtext.fade-out {
     opacity: 0;
@@ -244,7 +304,7 @@ body.weird-mode-active #weird-mode-toggle:hover {
     outline: none;
     font-size: 1.1rem;
     font-family: var(--font-main);
-    transition: 0.4s;
+    transition: all var(--transition-speed);
     margin-top: 0.5rem;
 }
 
@@ -259,7 +319,7 @@ body.weird-mode-active #weird-mode-toggle:hover {
     background-color: #111;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height var(--transition-speed) ease-out;
     border-left: 1px solid var(--secondary-neon);
     border-right: 1px solid var(--secondary-neon);
     border-bottom: 1px solid var(--secondary-neon);
@@ -304,7 +364,7 @@ body.weird-mode-active #weird-mode-toggle:hover {
     text-align: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-speed) ease;
     z-index: 1000;
     font-style: italic;
 }
@@ -331,7 +391,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     background-color: var(--primary-neon);
     border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
     box-shadow: 0 0 20px var(--glow-color), inset 0 0 10px rgba(255, 255, 255, 0.5);
-    transition: width 1s ease-out, height 1s ease-out, border-radius 1s ease-out;
+    transition: width 1s ease-out, height 1s ease-out, border-radius 1s ease-out, background-color var(--transition-speed);
     animation: morph 8s ease-in-out infinite;
     display: flex;
     justify-content: center;
@@ -400,7 +460,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     outline: none;
     font-size: 1.2rem;
     font-family: var(--font-main);
-    transition: 0.4s;
+    transition: all var(--transition-speed);
     position: relative;
 }
 
@@ -416,7 +476,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     font-size: 0.8em;
     margin-right: 10px;
     display: inline-block;
-    transition: transform 0.3s;
+    transition: transform var(--transition-speed);
 }
 
 .phase-header.active::before {
@@ -429,7 +489,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     background-color: #111;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height var(--transition-speed) ease-out;
     border-left: 1px solid var(--secondary-neon);
     border-right: 1px solid var(--secondary-neon);
     border-bottom: 1px solid var(--secondary-neon);
@@ -519,7 +579,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed) ease;
     box-shadow: 0 0 15px var(--secondary-neon);
 }
 
@@ -569,7 +629,7 @@ body.weird-mode-active #quote-whisper-box.visible {
     height: 21px;
     background: var(--secondary-neon);
     border-radius: 90px;
-    transition: 0.3s;
+    transition: var(--transition-speed);
 }
 
 .toggle-switch:checked + .toggle-label {

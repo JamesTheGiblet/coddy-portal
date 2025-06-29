@@ -11,6 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Vibe Slider Logic ---
+    const vibeSlider = document.getElementById('vibe-slider');
+    if (vibeSlider) {
+        vibeSlider.addEventListener('input', (event) => {
+            const value = event.target.value;
+            // Map slider value (0-100) to a transition speed (e.g., 0.8s down to 0.1s)
+            // Calm (0) = slow, Chaotic (100) = fast
+            const transitionSpeed = 0.8 - (value / 100) * 0.7;
+            document.documentElement.style.setProperty('--transition-speed', `${transitionSpeed.toFixed(2)}s`);
+        });
+    }
+
+
     // --- Accordion Logic ---
     const accordionButtons = document.querySelectorAll('.accordion-button');
     accordionButtons.forEach(button => {
