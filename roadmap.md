@@ -25,7 +25,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 - [x] Build Hero section with tagline, portal button, glowing background
 - [x] Add subtle particle FX / scanlines / glitch-bloom overlay
 - [x] Toggle: Enter Weird Mode (inverted palette, glitch effect)
-- [ ] Responsive layout for mobile + large screens
+- [x] Responsive layout for mobile + large screens
 
 ---
 
