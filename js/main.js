@@ -191,14 +191,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Genesis Demo Logic ---
     const genesisForm = document.getElementById('genesis-form');
     if (genesisForm) {
+        const outputArea = document.getElementById('genesis-output-area');
+        const ideaInput = document.getElementById('genesis-idea-input');
+
         genesisForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            const ideaInput = document.getElementById('genesis-idea-input');
             const idea = ideaInput.value.trim();
 
             if (idea) {
                 console.log("Genesis Ritual Initiated. Idea:", idea);
-                // Future steps will generate output here.
+                outputArea.innerHTML = ''; // Clear previous results
+
+                // --- Generate README ---
+                const projectName = idea.split(' ').slice(0, 5).join(' ').replace(/[.,]/g, '') || "New Project";
+                const readmeContent = `
+# ${projectName}
+
+## Overview
+${idea}
+
+## Features
+- Core feature A
+- Core feature B
+- Core feature C
+
+## Getting Started
+1. Clone the repository.
+2. Install dependencies.
+3. Run the application.
+                `;
+
+                createParchmentFrame('README.md', marked.parse(readmeContent));
+
             } else {
                 alert("The ritual requires an idea to begin.");
             }

@@ -57,9 +57,9 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 - [x] Build Genesis Tab with 3-part flow:
   - [x] Input project idea
-  - Coddy generates sample README  
+  - [x] Coddy generates sample README
   - Click → see Phase 1 roadmap + placeholder code output  
-- [ ] Style each output block in “ritual parchment” frame  
+- [x] Style each output block in “ritual parchment” frame
 - [ ] Add toggle: Standard vs Weird Genesis  
 - [ ] Save mock projects to localStorage (optional)
 

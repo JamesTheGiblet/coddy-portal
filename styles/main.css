@@ -526,3 +526,42 @@ body.weird-mode-active #quote-whisper-box.visible {
 #genesis-start-button:hover {
     box-shadow: 0 0 25px var(--secondary-neon), 0 0 40px var(--secondary-neon);
 }
+
+/* --- Parchment Frame for Genesis Output --- */
+.parchment-frame {
+    border: 1px solid var(--primary-neon);
+    background: rgba(0, 247, 255, 0.03);
+    margin-bottom: 2rem;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.1);
+    animation: fade-in 0.5s ease-in-out;
+}
+
+.parchment-header {
+    background: var(--primary-neon);
+    color: var(--background-color);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.parchment-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.parchment-content h1,
+.parchment-content h2 {
+    text-shadow: none; /* Override global header glow for readability */
+    border-bottom: 1px solid var(--primary-neon);
+    padding-bottom: 0.5rem;
+}
+
+.parchment-content ul {
+    padding-left: 20px;
+    list-style: '» '; /* Custom bullet */
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
