@@ -1,0 +1,55 @@
+/* --- CSS Variables for the Neon Theme --- */
+:root {
+    --background-color: #0a0a0a;
+    --text-color: #e0e0e0;
+    --primary-neon: #00f7ff; /* Neon Cyan */
+    --secondary-neon: #f0f; /* Neon Magenta */
+    --glow-color: rgba(0, 247, 255, 0.5);
+    --font-main: 'Courier New', Courier, monospace;
+}
+
+/* --- Global Styles --- */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+h1, h2 {
+    color: var(--primary-neon);
+    text-shadow: 
+        0 0 5px var(--primary-neon),
+        0 0 10px var(--primary-neon),
+        0 0 20px var(--glow-color);
+}
+
+a {
+    color: var(--secondary-neon);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--secondary-neon);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background-color: var(--secondary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--secondary-neon);
+}
+
+header nav {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+main {
+    margin-top: 2rem;
+    max-width: 800px;
+}
