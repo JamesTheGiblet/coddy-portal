@@ -354,4 +354,72 @@ body.weird-mode-active #quote-whisper-box.visible {
     background-color: var(--secondary-neon);
     border: 1px solid var(--secondary-neon);
     box-shadow: 0 0 10px var(--glow-color);
+    z-index: 1;
+}
+
+.phase-header {
+    background-color: transparent;
+    color: var(--primary-neon);
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid var(--primary-neon);
+    text-align: left;
+    outline: none;
+    font-size: 1.2rem;
+    font-family: var(--font-main);
+    transition: 0.4s;
+    position: relative;
+}
+
+.phase-header:hover, .phase-header.active {
+    background-color: var(--primary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.phase-header::before {
+    content: '\\25B6'; /* Right-pointing triangle */
+    color: var(--primary-neon);
+    font-size: 0.8em;
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.phase-header.active::before {
+    transform: rotate(90deg);
+    color: var(--background-color);
+}
+
+.phase-content {
+    padding: 0 18px;
+    background-color: #111;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: 1px solid var(--secondary-neon);
+    border-right: 1px solid var(--secondary-neon);
+    border-bottom: 1px solid var(--secondary-neon);
+}
+
+.phase-content p, .phase-content ul {
+    padding: 1rem;
+    margin: 0;
+}
+
+.phase-content ul { list-style: none; padding-left: 1rem; }
+.phase-content li { margin-bottom: 0.75rem; color: var(--text-color); list-style-type: none; }
+.phase-content li input[type="checkbox"] { margin-right: 10px; -webkit-appearance: none; appearance: none; background-color: transparent; width: 1.15em; height: 1.15em; border: 1px solid var(--primary-neon); transform: translateY(0.15em); cursor: default; position: relative; }
+.phase-content li input[type="checkbox"]:checked { background-color: var(--primary-neon); box-shadow: 0 0 10px var(--glow-color); border-color: var(--primary-neon); animation: flicker-pulse-check 2.5s infinite; }
+
+@keyframes flicker-pulse-check {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px var(--glow-color);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--primary-neon);
+    }
 }
