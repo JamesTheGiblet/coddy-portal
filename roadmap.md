@@ -47,7 +47,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 - [x] Build vertical timeline view with collapsible phases
 - [x] Animate completed tasks with flicker-pulse checkmarks
 - [x] Add Coddy commentary per phase (e.g. “currently looping...”)
-- [ ] Track overall % complete and current active loop
+- [x] Track overall % complete and current active loop
 
 ---
 

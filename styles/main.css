@@ -317,6 +317,38 @@ body.weird-mode-active #quote-whisper-box.visible {
     animation: flicker 1.5s infinite alternate;
 }
 
+/* --- Completion Visualizer --- */
+#completion-visualizer {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#integrity-blob {
+    width: 50px; /* Start size */
+    height: 50px; /* Start size */
+    background-color: var(--primary-neon);
+    border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+    box-shadow: 0 0 20px var(--glow-color), inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: width 1s ease-out, height 1s ease-out, border-radius 1s ease-out;
+    animation: morph 8s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+@keyframes morph {
+    0%   { border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%; }
+    25%  { border-radius: 55% 45% 40% 60% / 45% 50% 50% 55%; }
+    50%  { border-radius: 60% 40% 55% 45% / 55% 50% 45% 50%; }
+    75%  { border-radius: 40% 60% 45% 55% / 50% 55% 50% 45%; }
+    100% { border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%; }
+}
+
 /* --- Roadmap Styles --- */
 #roadmap-container {
     text-align: left;

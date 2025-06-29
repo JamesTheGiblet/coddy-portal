@@ -90,6 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = marked.parse(contentToRender);
 
+                // --- Calculate and Display Completion Blob ---
+                const allTasks = tempDiv.querySelectorAll('input[type="checkbox"]');
+                const completedTasks = tempDiv.querySelectorAll('input[type="checkbox"]:checked');
+                const integrityBlob = document.getElementById('integrity-blob');
+                const integrityPercent = document.getElementById('integrity-percent');
+
+                if (allTasks.length > 0 && integrityBlob && integrityPercent) {
+                    const percentage = (completedTasks.length / allTasks.length) * 100;
+                    integrityPercent.textContent = `${Math.round(percentage)}%`;
+
+                    const minSize = 50;
+                    const maxSize = 200;
+                    const currentSize = minSize + (maxSize - minSize) * (percentage / 100);
+
+                    integrityBlob.style.width = `${currentSize}px`;
+                    integrityBlob.style.height = `${currentSize}px`;
+                }
+
                 const commentaries = [
                     "The first ritual is complete. The ground is consecrated, the glyphs are drawn. We can begin.",
                     "Visuals aligned. The portal now reflects the chaos of the loop. It has a face.",
