@@ -54,6 +54,40 @@ main {
     max-width: 800px;
 }
 
+/* --- Hero Section --- */
+.hero-section {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at center, rgba(0, 247, 255, 0.1), var(--background-color) 70%);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.tagline {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: var(--primary-neon);
+    text-shadow: 
+        0 0 7px var(--primary-neon),
+        0 0 15px var(--primary-neon),
+        0 0 30px var(--glow-color);
+}
+
+.cta-button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: var(--primary-neon);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 20px var(--glow-color);
+    font-weight: bold;
+}
+
 /* --- Animations --- */
 #boot-loop-glyph-container {
     margin-bottom: 1rem;

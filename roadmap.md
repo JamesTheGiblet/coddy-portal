@@ -22,7 +22,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 **Goal:** Introduce Coddy’s identity with visual language drawn from your posters.
 
 - [x] Design looping **Boot the Loop** animation or glyph (SVG or canvas)
-- [ ] Build Hero section with tagline, portal button, glowing background  
+- [x] Build Hero section with tagline, portal button, glowing background
 - [ ] Add subtle particle FX / scanlines / glitch-bloom overlay  
 - [ ] Toggle: Enter Weird Mode (glitch sounds, inverted palette, Coddy whispers)  
 - [ ] Responsive layout for mobile + large screens
