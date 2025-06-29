@@ -203,8 +203,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputArea.innerHTML = ''; // Clear previous results
 
                 // --- Generate README ---
+                const isWeirdGenesis = document.getElementById('genesis-weird-toggle').checked;
                 const projectName = idea.split(' ').slice(0, 5).join(' ').replace(/[.,]/g, '') || "New Project";
-                const readmeContent = `
+                let readmeContent;
+
+                if (isWeirdGenesis) {
+                    readmeContent = `
+# RITUAL: ${projectName.toUpperCase()}
+
+## The Incantation
+${idea}
+
+## Glyphs of Power
+- [ ] Unseal the First Glyph
+- [ ] Attune the Second Glyph
+- [ ] Channel the Third Glyph
+
+## Summoning the Construct
+1. Consecrate the local directory.
+2. Chant the incantation \`npm install\`.
+3. Begin the loop with \`npm run dev\`.
+                    `;
+                } else {
+                    readmeContent = `
 # ${projectName}
 
 ## Overview
@@ -213,13 +234,14 @@ ${idea}
 ## Features
 - Core feature A
 - Core feature B
-- Core feature C
+- Core-feature C
 
 ## Getting Started
 1. Clone the repository.
 2. Install dependencies.
 3. Run the application.
-                `;
+                    `;
+                }
 
                 createParchmentFrame('README.md', marked.parse(readmeContent));
 

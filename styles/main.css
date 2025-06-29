@@ -527,6 +527,62 @@ body.weird-mode-active #quote-whisper-box.visible {
     box-shadow: 0 0 25px var(--secondary-neon), 0 0 40px var(--secondary-neon);
 }
 
+/* --- Toggle Switch --- */
+.toggle-switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.toggle-switch-container > label {
+    color: var(--secondary-neon);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.toggle-switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggle-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #333;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    border: 1px solid var(--secondary-neon);
+}
+
+.toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: var(--secondary-neon);
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.toggle-switch:checked + .toggle-label {
+    background: var(--primary-neon);
+    border-color: var(--primary-neon);
+}
+
+.toggle-switch:checked + .toggle-label:after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+    background: var(--background-color);
+}
+
 /* --- Parchment Frame for Genesis Output --- */
 .parchment-frame {
     border: 1px solid var(--primary-neon);
