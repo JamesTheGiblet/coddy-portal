@@ -19,6 +19,8 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative; /* Needed for the overlay */
+    overflow-x: hidden; /* Prevents horizontal scrollbar from effects */
 }
 
 h1, h2 {
@@ -101,4 +103,29 @@ main {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* --- Scanline Overlay Effect --- */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    background-size: 100% 4px;
+    opacity: 0.2;
+    pointer-events: none; /* Allows clicking through the overlay */
+    animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+    from { background-position: 0 0; }
+    to { background-position: 0 -40px; }
 }

@@ -23,7 +23,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 - [x] Design looping **Boot the Loop** animation or glyph (SVG or canvas)
 - [x] Build Hero section with tagline, portal button, glowing background
-- [ ] Add subtle particle FX / scanlines / glitch-bloom overlay  
+- [x] Add subtle particle FX / scanlines / glitch-bloom overlay
 - [ ] Toggle: Enter Weird Mode (glitch sounds, inverted palette, Coddy whispers)  
 - [ ] Responsive layout for mobile + large screens
 
