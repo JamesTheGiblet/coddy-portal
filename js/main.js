@@ -129,6 +129,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Logbook Fetching and Rendering Logic ---
+    const logbookSection = document.getElementById('logbook-section');
+    const logbookContainer = document.getElementById('logbook-container');
+    if (logbookSection && logbookContainer) {
+        fetch('data/logbook.json')
+            .then(response => response.json())
+            .then(logEntries => {
+                if (logEntries.length === 0) return;
+
+                logbookContainer.innerHTML = ''; // Clear placeholder
+                logEntries.forEach(entryData => {
+                    const entryDiv = document.createElement('div');
+                    entryDiv.className = 'log-entry';
+
+                    entryDiv.innerHTML = `
+                        <button class="log-header">
+                            <span class="log-date">${entryData.date}</span>
+                            <span class="log-title">${entryData.title}</span>
+                        </button>
+                        <div class="log-content">
+                            <p>${entryData.entry}</p>
+                        </div>
+                    `;
+                    logbookContainer.appendChild(entryDiv);
+                });
+
+                // Make the whole section visible now that it has content
+                logbookSection.style.display = 'block';
+
+                // Add event listeners to the newly created log headers
+                const logHeaders = logbookContainer.querySelectorAll('.log-header');
+                logHeaders.forEach(button => {
+                    button.addEventListener('click', () => {
+                        button.classList.toggle('active');
+                        const panel = button.nextElementSibling;
+                        panel.style.maxHeight = panel.style.maxHeight ? null : `${panel.scrollHeight}px`;
+                    });
+                });
+            }).catch(error => {
+                console.error("Could not load Coddy's logbook:", error);
+                // The section remains hidden if the fetch fails
+            });
+    }
+
     // --- Tagline Looping Logic ---
     const taglineElement = document.getElementById('tagline-loop');
     const subtextElement = document.getElementById('tagline-subtext');

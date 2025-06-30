@@ -779,3 +779,42 @@ body.weird-mode-active #quote-whisper-box.visible {
 #coddy-prompts-corner.fade {
     opacity: 0;
 }
+
+/* --- Builder Section --- */
+#builder-section {
+    margin-top: 4rem;
+    width: 100%;
+    border-top: 1px solid var(--secondary-neon);
+    padding-top: 2rem;
+}
+
+.highlight-quote {
+    font-size: 1.5rem;
+    color: var(--primary-neon);
+    border-left: 4px solid var(--primary-neon);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    text-align: left;
+    font-style: italic;
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+#builder-section p {
+    text-align: left;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin: 0 auto 2rem auto;
+}
+
+.external-links {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.external-links a {
+    flex-grow: 1;
+    max-width: 200px;
+}
