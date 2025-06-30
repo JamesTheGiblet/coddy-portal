@@ -751,3 +751,31 @@ body.weird-mode-active #quote-whisper-box.visible {
     cursor: pointer;
     font-family: var(--font-main);
 }
+
+/* --- Coddy Prompts Corner --- */
+#coddy-prompts-corner {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 250px;
+    background-color: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--secondary-neon);
+    padding: 0.75rem;
+    border-radius: 5px;
+    color: var(--secondary-neon);
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: left;
+    z-index: 1000;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+#coddy-prompts-corner.visible {
+    opacity: 1;
+}
+
+#coddy-prompts-corner.fade {
+    opacity: 0;
+}

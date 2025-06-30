@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Persona Data & Logic ---
+    // --- Persona & Prompts Logic ---
     const personas = {
         Builder: [
             "The loop is never truly broken, only paused.",
@@ -50,9 +50,25 @@ document.addEventListener('DOMContentLoaded', () => {
             "The prophecy of the null pointer exception is upon us."
         ]
     };
-    let currentQuotes = personas.Builder; // Default
+    let currentQuotes = [];
+    let promptIndex = -1;
 
+    const promptsCorner = document.getElementById('coddy-prompts-corner');
     const personaButtons = document.querySelectorAll('.persona-button');
+
+    function showNextPrompt() {
+        if (!promptsCorner || !currentQuotes || currentQuotes.length === 0) return;
+
+        promptsCorner.classList.add('fade');
+
+        setTimeout(() => {
+            promptIndex = (promptIndex + 1) % currentQuotes.length;
+            promptsCorner.textContent = `"${currentQuotes[promptIndex]}"`;
+            promptsCorner.classList.remove('fade');
+            promptsCorner.classList.add('visible');
+        }, 500); // Corresponds to CSS transition
+    }
+
     if (personaButtons.length > 0) {
         function setPersona(personaName) {
             if (!personas[personaName]) return;
@@ -61,6 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             personaButtons.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.persona === personaName);
             });
+            // Trigger a prompt update immediately
+            promptIndex = -1;
+            showNextPrompt();
         }
 
         personaButtons.forEach(button => {
@@ -69,6 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Load saved persona on start
         setPersona(localStorage.getItem('coddy-persona') || 'Builder');
+    }
+
+    if (promptsCorner) {
+        // Cycle prompts every 10 seconds
+        setInterval(showNextPrompt, 10000);
     }
 
     // --- Accordion Logic ---
