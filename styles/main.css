@@ -818,3 +818,67 @@ body.weird-mode-active #quote-whisper-box.visible {
     flex-grow: 1;
     max-width: 200px;
 }
+
+/* --- Poster Gallery --- */
+.gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    border: 1px solid var(--primary-neon);
+    box-shadow: 0 0 20px var(--glow-color);
+    background-color: #000;
+}
+
+.gallery-slider {
+    display: flex;
+}
+
+.slide {
+    min-width: 100%;
+    display: none; /* Hide by default */
+}
+
+.slide.active {
+    display: block; /* Show active slide */
+    animation: gallery-fade-in 0.7s;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-prev, .gallery-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: var(--primary-neon);
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(10, 10, 10, 0.5);
+    border: 1px solid transparent;
+}
+
+.gallery-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.gallery-prev:hover, .gallery-next:hover {
+    background-color: var(--primary-neon);
+    color: var(--background-color);
+    border-color: var(--primary-neon);
+}
+
+@keyframes gallery-fade-in {
+    from { opacity: .4 } 
+    to { opacity: 1 }
+}

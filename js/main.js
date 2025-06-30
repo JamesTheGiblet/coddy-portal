@@ -451,4 +451,35 @@ ${idea}
         // Initial load
         loadSavedRituals();
     }
+
+    // --- Gallery Slider Logic ---
+    const gallerySlider = document.querySelector('.gallery-slider');
+    if (gallerySlider) {
+        const prevButton = document.querySelector('.gallery-prev');
+        const nextButton = document.querySelector('.gallery-next');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        if (prevButton && nextButton) {
+            prevButton.addEventListener('click', prevSlide);
+            nextButton.addEventListener('click', nextSlide);
+        }
+
+        if (slides.length > 0) showSlide(currentSlide);
+    }
 });

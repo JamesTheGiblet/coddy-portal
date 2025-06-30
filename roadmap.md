@@ -91,7 +91,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Showcase your original Coddy posters and vibe DNA.
 
-- [ ] Add gallery slider: Poster 1 → 2 → 3  
+- [x] Add gallery slider: Poster 1 → 2 → 3
 - [ ] Click to expand, with glow border, poster notes and phrases  
 - [ ] Optional: turn poster phrases into animated captions on main site  
 - [ ] Add “Download Posters” button or print-safe layout toggle
