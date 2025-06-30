@@ -1,0 +1,8 @@
+{
+  "name": "coddy-portal-backend",
+  "version": "1.0.0",
+  "description": "Scripts for managing the Coddy Portal.",
+  "scripts": {
+    "log": "node scripts/generate-log.js"
+  }
+}

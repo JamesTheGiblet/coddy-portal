@@ -101,19 +101,19 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 
 **Goal:** Begin adding live “mini-loop” UI synced with Coddy dev progress
 
-- [ ] Animate current task Coddy is “thinking on”  
-- [ ] Add console-style ticker log showing updates  
-- [ ] Sync with commits: `coddy just completed Phase 1.2 – CLI skeleton functional ✅`  
-- [ ] Future: link to Coddy’s real output (code snippets, changelogs, etc.)
+- [x] Animate current task Coddy is “thinking on”
+- [x] Add console-style ticker log showing updates (via Logbook)
+- [x] Sync with commits: `coddy just completed Phase 1.2 – CLI skeleton functional ✅` (via script)
+- [x] Future: link to Coddy’s real output (code snippets, changelogs, etc.)
 
 ---
 
 ## AI-Guided Quality & Value Evaluation
 
-- ✅ Evaluate:
-  - Does the site reflect Coddy’s *personality* and technical purpose?
-  - Do users understand how Coddy works and why it’s different?
-  - Is the roadmap readable and reflective of real-time dev loops?
-  - Does the demo flow *feel* like a ritual Coddy experience?
+- [x] **Evaluate:**
+  - [x] Does the site reflect Coddy’s *personality* and technical purpose?
+  - [x] Do users understand how Coddy works and why it’s different?
+  - [x] Is the roadmap readable and reflective of real-time dev loops?
+  - [x] Does the demo flow *feel* like a ritual Coddy experience?
 
 ---

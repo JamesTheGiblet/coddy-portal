@@ -229,6 +229,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = marked.parse(contentToRender);
 
+                // --- Animate Current Task ---
+                const firstUncheckedTask = tempDiv.querySelector('li input[type="checkbox"]:not(:checked)');
+                if (firstUncheckedTask) {
+                    // Find the parent <li> of the checkbox
+                    const currentTaskLi = firstUncheckedTask.closest('li');
+                    if (currentTaskLi) {
+                        currentTaskLi.classList.add('current-loop-task');
+                    }
+                }
+
                 // --- Calculate and Display Completion Blob ---
                 const allTasks = tempDiv.querySelectorAll('input[type="checkbox"]');
                 const completedTasks = tempDiv.querySelectorAll('input[type="checkbox"]:checked');
