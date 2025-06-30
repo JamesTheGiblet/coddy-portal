@@ -70,7 +70,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 **Goal:** Add site-wide UX features for interactivity, customization, and vibe control.
 
 - [x] Vibe Slider: Calm <-> Chaotic (affects transition speed, visuals)
-- [ ] Persona Picker: “Builder Mode”, “IdeaSynth”, “Pattern Oracle” (changes Coddy’s voice/tips)  
+- [x] Persona Picker: “Builder Mode”, “IdeaSynth”, “Pattern Oracle” (changes Coddy’s voice/tips)
 - [ ] Coddy Prompts corner: recent quotes or whisper hints cycling every 10s  
 - [ ] Remember last state across sessions
 

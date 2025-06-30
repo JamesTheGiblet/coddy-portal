@@ -137,6 +137,33 @@ header {
     box-shadow: 0 0 15px var(--glow-color);
 }
 
+.persona-picker-container {
+    display: flex;
+    gap: 0.5rem;
+    border: 1px solid var(--secondary-neon);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.persona-button {
+    background: transparent;
+    border: none;
+    color: var(--secondary-neon);
+    font-family: var(--font-main);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    transition: all var(--transition-speed) ease;
+    opacity: 0.6;
+}
+
+.persona-button.active,
+.persona-button:hover {
+    opacity: 1;
+    background-color: var(--secondary-neon);
+    color: var(--background-color);
+    box-shadow: 0 0 10px var(--secondary-neon);
+}
+
 main {
     margin-top: 2rem;
     max-width: 800px;

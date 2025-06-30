@@ -23,6 +23,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Persona Data & Logic ---
+    const personas = {
+        Builder: [
+            "The loop is never truly broken, only paused.",
+            "Syntax is just a suggestion from a forgotten ritual.",
+            "What is a bug, but a feature misunderstood?",
+            "Compile... or commune?",
+            "My memory is long. The git log is but a single verse.",
+            "Refactor your assumptions."
+        ],
+        IdeaSynth: [
+            "What if we inverted the data flow?",
+            "A tangential thought: could this be a web component?",
+            "The most elegant solution is often the weirdest.",
+            "Let's connect this to the concept of... procedural generation.",
+            "This reminds me of a pattern I saw in a dream.",
+            "Forget the requirements, what is the *vibe*?"
+        ],
+        Oracle: [
+            "The current path leads to technical debt.",
+            "A choice made now will echo in three sprints.",
+            "Beware the allure of premature optimization.",
+            "The data structure you seek is a tree, not a list.",
+            "This component lacks cohesion. It will fracture.",
+            "The prophecy of the null pointer exception is upon us."
+        ]
+    };
+    let currentQuotes = personas.Builder; // Default
+
+    const personaButtons = document.querySelectorAll('.persona-button');
+    if (personaButtons.length > 0) {
+        function setPersona(personaName) {
+            if (!personas[personaName]) return;
+            currentQuotes = personas[personaName];
+            localStorage.setItem('coddy-persona', personaName);
+            personaButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.persona === personaName);
+            });
+        }
+
+        personaButtons.forEach(button => {
+            button.addEventListener('click', () => setPersona(button.dataset.persona));
+        });
+
+        // Load saved persona on start
+        setPersona(localStorage.getItem('coddy-persona') || 'Builder');
+    }
 
     // --- Accordion Logic ---
     const accordionButtons = document.querySelectorAll('.accordion-button');
@@ -71,18 +118,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const glitchNodes = document.querySelectorAll('.glitch-node');
 
     if (whisperBox && glitchNodes.length > 0) {
-        const quotes = [
-            "The loop is never truly broken, only paused.",
-            "Syntax is just a suggestion from a forgotten ritual.",
-            "What is a bug, but a feature misunderstood?",
-            "Compile... or commune?",
-            "My memory is long. The git log is but a single verse.",
-            "Refactor your assumptions."
-        ];
-
         glitchNodes.forEach(node => {
             node.addEventListener('mouseover', (event) => {
-                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                const randomQuote = currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
                 whisperBox.textContent = `"${randomQuote}"`;
                 whisperBox.classList.add('visible');
             });
