@@ -72,7 +72,7 @@ Absolutely, James — let's create a roadmap worthy of Coddy's portal. This will
 - [x] Vibe Slider: Calm <-> Chaotic (affects transition speed, visuals)
 - [x] Persona Picker: “Builder Mode”, “IdeaSynth”, “Pattern Oracle” (changes Coddy’s voice/tips)
 - [x] Coddy Prompts corner: recent quotes or whisper hints cycling every 10s
-- [ ] Remember last state across sessions
+- [x] Remember last state across sessions
 
 ---
 

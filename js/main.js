@@ -1,27 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Weird Mode Toggle ---
+    // --- Control Panel State Management ---
     const weirdModeToggle = document.getElementById('weird-mode-toggle');
+    const vibeSlider = document.getElementById('vibe-slider');
+
+    // Function to set Weird Mode state
+    function setWeirdMode(isActive) {
+        document.body.classList.toggle('weird-mode-active', isActive);
+        if (weirdModeToggle) {
+            weirdModeToggle.textContent = isActive ? 'Exit Weird Mode' : 'Enter Weird Mode';
+        }
+        localStorage.setItem('coddy-weird-mode', isActive);
+    }
+
+    // Function to set Vibe Slider state
+    function setVibe(value) {
+        if (!vibeSlider) return;
+        const transitionSpeed = 0.8 - (value / 100) * 0.7;
+        document.documentElement.style.setProperty('--transition-speed', `${transitionSpeed.toFixed(2)}s`);
+        vibeSlider.value = value;
+        localStorage.setItem('coddy-vibe', value);
+    }
+
+    // Event listener for Weird Mode
     if (weirdModeToggle) {
         weirdModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('weird-mode-active');
-            
-            // Update button text for better UX
-            const isWeird = document.body.classList.contains('weird-mode-active');
-            weirdModeToggle.textContent = isWeird ? 'Exit Weird Mode' : 'Enter Weird Mode';
+            const isCurrentlyWeird = document.body.classList.contains('weird-mode-active');
+            setWeirdMode(!isCurrentlyWeird);
         });
     }
 
-    // --- Vibe Slider Logic ---
-    const vibeSlider = document.getElementById('vibe-slider');
+    // Event listener for Vibe Slider
     if (vibeSlider) {
         vibeSlider.addEventListener('input', (event) => {
-            const value = event.target.value;
-            // Map slider value (0-100) to a transition speed (e.g., 0.8s down to 0.1s)
-            // Calm (0) = slow, Chaotic (100) = fast
-            const transitionSpeed = 0.8 - (value / 100) * 0.7;
-            document.documentElement.style.setProperty('--transition-speed', `${transitionSpeed.toFixed(2)}s`);
+            setVibe(event.target.value);
         });
     }
+
+    // Load all saved states on initial load
+    const savedWeirdMode = localStorage.getItem('coddy-weird-mode') === 'true';
+    setWeirdMode(savedWeirdMode);
+
+    const savedVibe = localStorage.getItem('coddy-vibe') || 50;
+    setVibe(savedVibe);
 
     // --- Persona & Prompts Logic ---
     const personas = {
