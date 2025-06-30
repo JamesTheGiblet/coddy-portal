@@ -37,14 +37,36 @@
 
         <div class="gallery-container">
             <div class="gallery-slider">
-                <div class="slide"><img src="assets/images/poster1.png" alt="Coddy Poster 1"></div>
-                <div class="slide"><img src="assets/images/poster2.png" alt="Coddy Poster 2"></div>
-                <div class="slide"><img src="assets/images/poster3.png" alt="Coddy Poster 3"></div>
+                <div class="slide" data-title="Poster 1: The Ritual" data-notes="The core concept: development as a ritual, not just a process. The loop is central.">
+                    <img src="assets/images/poster1.png" alt="Coddy Poster 1">
+                </div>
+                <div class="slide" data-title="Poster 2: Weird Mode" data-notes="Embracing the strange and unexpected paths of creation. This is where true innovation happens.">
+                    <img src="assets/images/poster2.png" alt="Coddy Poster 2">
+                </div>
+                <div class="slide" data-title="Poster 3: The Oracle" data-notes="Coddy as a guide, seeing patterns and futures in the code that the builder might miss.">
+                    <img src="assets/images/poster3.png" alt="Coddy Poster 3">
+                </div>
             </div>
             <button class="gallery-prev">&#10094;</button>
             <button class="gallery-next">&#10095;</button>
         </div>
+
+        <div class="download-section">
+            <a href="assets/posters.zip" download="Coddy-Posters.zip" class="cta-button">Download All Posters</a>
+        </div>
     </main>
+
+    <!-- The Modal Lightbox -->
+    <div id="gallery-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-image" id="modal-img">
+            <div id="modal-caption">
+                <h3 id="modal-title"></h3>
+                <p id="modal-notes"></p>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
     <div id="coddy-prompts-corner"></div>

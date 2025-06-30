@@ -458,6 +458,11 @@ ${idea}
         const prevButton = document.querySelector('.gallery-prev');
         const nextButton = document.querySelector('.gallery-next');
         const slides = document.querySelectorAll('.slide');
+        const modal = document.getElementById('gallery-modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalNotes = document.getElementById('modal-notes');
+        const closeSpan = document.querySelector('.modal-close');
         let currentSlide = 0;
 
         function showSlide(n) {
@@ -480,6 +485,29 @@ ${idea}
             nextButton.addEventListener('click', nextSlide);
         }
 
-        if (slides.length > 0) showSlide(currentSlide);
+        if (slides.length > 0) {
+            showSlide(currentSlide);
+
+            slides.forEach(slide => {
+                slide.addEventListener('click', () => {
+                    if (!modal) return;
+                    modal.style.display = "block";
+                    modalImg.src = slide.querySelector('img').src;
+                    modalTitle.textContent = slide.dataset.title;
+                    modalNotes.textContent = slide.dataset.notes;
+                });
+            });
+        }
+
+        if (modal && closeSpan) {
+            closeSpan.onclick = function() { 
+                modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        }
     }
 });

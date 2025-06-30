@@ -882,3 +882,75 @@ body.weird-mode-active #quote-whisper-box.visible {
     from { opacity: .4 } 
     to { opacity: 1 }
 }
+
+/* --- Gallery Modal (Lightbox) --- */
+.slide img {
+    cursor: pointer; /* Make images clickable */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(10, 10, 10, 0.95);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--primary-neon);
+    box-shadow: 0 0 25px var(--glow-color);
+}
+
+#modal-caption {
+    margin: 1rem auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#modal-caption h3 { color: var(--primary-neon); margin-bottom: 0.5rem; }
+#modal-caption p { color: var(--text-color); font-style: italic; }
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--primary-neon);
+    text-decoration: none;
+}
+
+/* --- Download Section --- */
+.download-section {
+    margin-top: 3rem;
+}
