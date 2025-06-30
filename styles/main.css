@@ -954,3 +954,67 @@ body.weird-mode-active #quote-whisper-box.visible {
 .download-section {
     margin-top: 3rem;
 }
+
+/* --- Manifesto Sections on Portal Page --- */
+.manifesto-section {
+    width: 100%;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--secondary-neon);
+    text-align: left;
+}
+
+.manifesto-section:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+.section-intro {
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.feature-list, .tech-stack-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.feature-list li, .tech-stack-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.feature-list li::before, .tech-stack-list li::before {
+    content: '🌀';
+    color: var(--primary-neon);
+    position: absolute;
+    left: 0;
+}
+
+.tech-stack-list span {
+    color: var(--primary-neon);
+    font-weight: bold;
+}
+
+.flow-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.flow-step {
+    background: rgba(255, 0, 255, 0.05);
+    border: 1px solid var(--secondary-neon);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.flow-step strong {
+    color: var(--secondary-neon);
+    display: block;
+    margin-bottom: 0.5rem;
+}
